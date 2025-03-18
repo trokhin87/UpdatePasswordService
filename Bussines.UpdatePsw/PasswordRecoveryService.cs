@@ -26,7 +26,21 @@ public class PasswordRecoveryService:IService
         return await _mail.SendToken(email, token);
     }
 
-    public async Task<bool> CheckPassword(PasswordResetDto resetDto)
+    public async Task<bool> CheckPasswordAsync(PasswordResetDto dto)
+    {
+        var principal = _tokenRepository.ValidateToken(dto.Token);
+        if (principal == null) return false;
+
+        var email = principal.FindFirst(ClaimTypes.Email)?.Value; // Извлекаем значение email
+        if (string.IsNullOrEmpty(email)) return false;
+
+        var userID = await _repository.GetIdByEmail(email); // Дожидаемся результата запроса
+        if (userID == null) return false;
+
+        return await _repository.UpdateUserPassword(userID.Value, dto.NewPassword); // Передаём userID.Value
+    }
+
+    /*/public async Task<bool> CheckPassword(PasswordResetDto resetDto)
     {
         var principal = _tokenRepository.ValidateToken(resetDto.Token);
         if (principal == null) return false;
@@ -38,6 +52,6 @@ public class PasswordRecoveryService:IService
         if (userID == null) return false;
 
         return await _repository.UpdateUserPassword(userID.Value, resetDto.NewPassword); // Передаём userID.Value
-    }
+    }/*/
 
 }

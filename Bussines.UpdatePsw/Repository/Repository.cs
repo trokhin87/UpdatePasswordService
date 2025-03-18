@@ -9,9 +9,9 @@ public class Repository:IRepository
     private readonly HttpClient _httpClient;
     private readonly string? _baseUrl;
 
-    public Repository(HttpClient httpClient,IConfiguration configuration)
+    public Repository(IHttpClientFactory httpClientFactory, IConfiguration configuration)
     {
-        _httpClient = httpClient;
+        _httpClient = httpClientFactory.CreateClient();
         _baseUrl = configuration["ProxyMicroservice:BaseUrl"];
     }
     
@@ -36,7 +36,7 @@ public class Repository:IRepository
 
     public async Task<bool> UpdateUserPassword(Guid Id, string newPassword)
     {
-        var tmp=new{id=Id,password=newPassword};
+        var tmp=new{Id,password=newPassword};
         var response= await _httpClient.PutAsJsonAsync($"{_baseUrl}/api/passwordrecovery/update",tmp);
         return response.IsSuccessStatusCode;
     }
