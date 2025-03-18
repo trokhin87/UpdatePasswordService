@@ -7,9 +7,15 @@ using Microsoft.Extensions.Hosting;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
 
+builder.Host.UseSerilog(); // <- Регистрируем Serilog
 // Добавляем конфигурацию
 var configuration = builder.Configuration;
 
@@ -41,7 +47,12 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddScoped<IMail, MailRepository>();
 builder.Services.AddScoped<IService, PasswordRecoveryService>();
-builder.Services.AddSingleton<TokenRepository>(provider => new TokenRepository(configuration["JwtSettings:Secret"]));
+builder.Services.AddSingleton<TokenRepository>(provider =>
+    new TokenRepository(
+        provider.GetRequiredService<IConfiguration>()["JwtSettings:Secret"],
+        provider.GetRequiredService<ILogger<TokenRepository>>()
+    ));
+builder.Services.AddLogging();
 builder.Services.AddHttpClient();
 
 // Добавляем поддержку Swagger (если нужно)
