@@ -1,0 +1,6 @@
+@WebLevel_HostAddress = http://localhost:5151
+
+GET {{WebLevel_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
