@@ -34,10 +34,10 @@ public class PasswordRecoveryService:IService
         var email = principal.FindFirst(ClaimTypes.Email)?.Value; // Извлекаем значение email
         if (string.IsNullOrEmpty(email)) return false;
 
-        var userID = await _repository.GetIdByEmail(email); // Дожидаемся результата запроса
-        if (userID == null) return false;
+        var login = await _repository.GetLoginByMail(email); // Дожидаемся результата запроса
+        if (login == null) return false;
 
-        return await _repository.UpdateUserPassword(userID.Value, dto.NewPassword); // Передаём userID.Value
+        return await _repository.UpdateUserPassword(login, dto.NewPassword); // Передаём userID.Value
     }
 
     /*/public async Task<bool> CheckPassword(PasswordResetDto resetDto)

@@ -1,0 +1,197 @@
+2025-03-21 15:22:42.291 +03:00 [INF] User profile is available. Using 'C:\Users\trokh\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-21 15:22:42.377 +03:00 [WRN] Overriding address(es) 'http://localhost:5151'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-03-21 15:22:42.382 +03:00 [INF] Now listening on: http://localhost:5055
+2025-03-21 15:22:42.382 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-21 15:22:42.383 +03:00 [INF] Hosting environment: Development
+2025-03-21 15:22:42.384 +03:00 [INF] Content root path: C:\Users\trokh\RiderProjects\UpdatePasswordService\WebLevel
+2025-03-21 15:22:44.159 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/ - null null
+2025-03-21 15:22:44.212 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/ - 404 0 null 55.3816ms
+2025-03-21 15:22:44.224 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5055/, Response status code: 404
+2025-03-21 15:22:49.940 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger - null null
+2025-03-21 15:22:49.945 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger - 301 0 null 5.4557ms
+2025-03-21 15:22:49.947 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/index.html - null null
+2025-03-21 15:22:49.992 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/index.html - 200 null text/html;charset=utf-8 45.6366ms
+2025-03-21 15:22:50.073 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui.css - null null
+2025-03-21 15:22:50.088 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-03-21 15:22:50.090 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui.css - 200 154948 text/css 17.4408ms
+2025-03-21 15:22:50.125 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/index.css - null null
+2025-03-21 15:22:50.127 +03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-03-21 15:22:50.127 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/index.css - 200 202 text/css 2.5782ms
+2025-03-21 15:22:50.151 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui-standalone-preset.js - null null
+2025-03-21 15:22:50.151 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui-bundle.js - null null
+2025-03-21 15:22:50.151 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/index.js - null null
+2025-03-21 15:22:50.156 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/index.js - 200 null application/javascript;charset=utf-8 4.6191ms
+2025-03-21 15:22:50.161 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-03-21 15:22:50.162 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui-standalone-preset.js - 200 229223 text/javascript 10.6354ms
+2025-03-21 15:22:50.168 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-03-21 15:22:50.169 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui-bundle.js - 200 1466324 text/javascript 17.9774ms
+2025-03-21 15:22:50.372 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/v1/swagger.json - null null
+2025-03-21 15:22:50.397 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/favicon-32x32.png - null null
+2025-03-21 15:22:50.399 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-03-21 15:22:50.400 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/favicon-32x32.png - 200 628 image/png 2.3472ms
+2025-03-21 15:22:50.447 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 75.2189ms
+2025-03-21 15:23:08.003 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - application/json 21
+2025-03-21 15:23:08.008 +03:00 [INF] Executing endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:23:08.023 +03:00 [INF] Route matched with {action = "RequestTask", controller = "PasswordRecovery"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RequestTaskAsync(System.String) on controller WebLevel.PasswordRecoveryController (WebLevel).
+2025-03-21 15:23:08.060 +03:00 [INF] Executing action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) - Validation state: "Valid"
+2025-03-21 15:23:08.064 +03:00 [INF] Проверка существования пользователя с email: example@example.com
+2025-03-21 15:23:08.071 +03:00 [INF] Start processing HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:23:08.074 +03:00 [INF] Sending HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:23:12.190 +03:00 [INF] HTTP request failed after 4112.3739ms
+System.Net.Http.HttpRequestException: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. (localhost:5010)
+ ---> System.Net.Sockets.SocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.InjectNewHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|4_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+2025-03-21 15:23:12.202 +03:00 [INF] HTTP request failed after 4132.3788ms
+System.Net.Http.HttpRequestException: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. (localhost:5010)
+ ---> System.Net.Sockets.SocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.InjectNewHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|4_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|4_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+2025-03-21 15:23:12.206 +03:00 [ERR] Ошибка при проверке существования пользователя example@example.com
+System.Net.Http.HttpRequestException: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. (localhost:5010)
+ ---> System.Net.Sockets.SocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.InjectNewHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|4_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|4_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Bussines.UpdatePsw.Repository.CheckExistByMail(String email) in C:\Users\trokh\RiderProjects\UpdatePasswordService\Bussines.UpdatePsw\Repository\Repository.cs:line 74
+2025-03-21 15:23:12.221 +03:00 [INF] Executed action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 4157.5102ms.
+2025-03-21 15:23:12.228 +03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-21 15:23:12.240 +03:00 [INF] Executed action WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) in 4213.2151ms
+2025-03-21 15:23:12.241 +03:00 [INF] Executed endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:23:12.243 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - 400 null application/json; charset=utf-8 4239.9758ms
+2025-03-21 15:29:15.409 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - application/json 21
+2025-03-21 15:29:15.412 +03:00 [INF] Executing endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:29:15.413 +03:00 [INF] Route matched with {action = "RequestTask", controller = "PasswordRecovery"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RequestTaskAsync(System.String) on controller WebLevel.PasswordRecoveryController (WebLevel).
+2025-03-21 15:29:15.415 +03:00 [INF] Executing action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) - Validation state: "Valid"
+2025-03-21 15:29:15.416 +03:00 [INF] Проверка существования пользователя с email: trokhin99@gmail.com
+2025-03-21 15:29:15.417 +03:00 [INF] Start processing HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:29:15.417 +03:00 [INF] Sending HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:29:15.434 +03:00 [INF] Received HTTP response headers after 13.4846ms - 404
+2025-03-21 15:29:15.435 +03:00 [INF] End processing HTTP request after 17.6196ms - 404
+2025-03-21 15:29:15.436 +03:00 [WRN] Не удалось проверить существование пользователя trokhin99@gmail.com. Код ответа: "NotFound"
+2025-03-21 15:29:15.437 +03:00 [INF] Executed action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 20.3461ms.
+2025-03-21 15:29:15.438 +03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-21 15:29:15.438 +03:00 [INF] Executed action WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) in 24.3267ms
+2025-03-21 15:29:15.439 +03:00 [INF] Executed endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:29:15.440 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - 400 null application/json; charset=utf-8 31.1418ms
+2025-03-21 15:29:18.517 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/index.html - null null
+2025-03-21 15:29:18.519 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/index.html - 200 null text/html;charset=utf-8 1.6273ms
+2025-03-21 15:29:18.531 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/index.js - null null
+2025-03-21 15:29:18.534 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/index.js - 200 null application/javascript;charset=utf-8 2.4883ms
+2025-03-21 15:29:18.723 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/v1/swagger.json - null null
+2025-03-21 15:29:18.726 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 2.8217ms
+2025-03-21 15:29:32.559 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - application/json 21
+2025-03-21 15:29:32.560 +03:00 [INF] Executing endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:29:32.561 +03:00 [INF] Route matched with {action = "RequestTask", controller = "PasswordRecovery"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RequestTaskAsync(System.String) on controller WebLevel.PasswordRecoveryController (WebLevel).
+2025-03-21 15:29:32.563 +03:00 [INF] Executing action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) - Validation state: "Valid"
+2025-03-21 15:29:32.564 +03:00 [INF] Проверка существования пользователя с email: trokhin99@gmail.com
+2025-03-21 15:29:32.565 +03:00 [INF] Start processing HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:29:32.565 +03:00 [INF] Sending HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:29:32.571 +03:00 [INF] Received HTTP response headers after 4.759ms - 404
+2025-03-21 15:29:32.571 +03:00 [INF] End processing HTTP request after 6.7268ms - 404
+2025-03-21 15:29:32.572 +03:00 [WRN] Не удалось проверить существование пользователя trokhin99@gmail.com. Код ответа: "NotFound"
+2025-03-21 15:29:32.573 +03:00 [INF] Executed action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 8.6776ms.
+2025-03-21 15:29:32.574 +03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-21 15:29:32.575 +03:00 [INF] Executed action WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) in 12.7031ms
+2025-03-21 15:29:32.575 +03:00 [INF] Executed endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:29:32.576 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - 400 null application/json; charset=utf-8 17.4726ms
+2025-03-21 15:29:33.900 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - application/json 21
+2025-03-21 15:29:33.901 +03:00 [INF] Executing endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:29:33.902 +03:00 [INF] Route matched with {action = "RequestTask", controller = "PasswordRecovery"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RequestTaskAsync(System.String) on controller WebLevel.PasswordRecoveryController (WebLevel).
+2025-03-21 15:29:33.903 +03:00 [INF] Executing action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) - Validation state: "Valid"
+2025-03-21 15:29:33.904 +03:00 [INF] Проверка существования пользователя с email: trokhin99@gmail.com
+2025-03-21 15:29:33.904 +03:00 [INF] Start processing HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:29:33.905 +03:00 [INF] Sending HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:29:33.909 +03:00 [INF] Received HTTP response headers after 2.9724ms - 404
+2025-03-21 15:29:33.909 +03:00 [INF] End processing HTTP request after 5.1447ms - 404
+2025-03-21 15:29:33.910 +03:00 [WRN] Не удалось проверить существование пользователя trokhin99@gmail.com. Код ответа: "NotFound"
+2025-03-21 15:29:33.911 +03:00 [INF] Executed action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 7.0866ms.
+2025-03-21 15:29:33.912 +03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-21 15:29:33.912 +03:00 [INF] Executed action WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) in 9.7323ms
+2025-03-21 15:29:33.913 +03:00 [INF] Executed endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:29:33.914 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - 400 null application/json; charset=utf-8 14.1916ms
+2025-03-21 15:29:35.358 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - application/json 21
+2025-03-21 15:29:35.359 +03:00 [INF] Executing endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:29:35.360 +03:00 [INF] Route matched with {action = "RequestTask", controller = "PasswordRecovery"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RequestTaskAsync(System.String) on controller WebLevel.PasswordRecoveryController (WebLevel).
+2025-03-21 15:29:35.361 +03:00 [INF] Executing action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) - Validation state: "Valid"
+2025-03-21 15:29:35.362 +03:00 [INF] Проверка существования пользователя с email: trokhin99@gmail.com
+2025-03-21 15:29:35.362 +03:00 [INF] Start processing HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:29:35.363 +03:00 [INF] Sending HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:29:35.367 +03:00 [INF] Received HTTP response headers after 3.2888ms - 404
+2025-03-21 15:29:35.368 +03:00 [INF] End processing HTTP request after 5.2033ms - 404
+2025-03-21 15:29:35.368 +03:00 [WRN] Не удалось проверить существование пользователя trokhin99@gmail.com. Код ответа: "NotFound"
+2025-03-21 15:29:35.369 +03:00 [INF] Executed action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 7.1665ms.
+2025-03-21 15:29:35.370 +03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-21 15:29:35.371 +03:00 [INF] Executed action WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) in 9.925ms
+2025-03-21 15:29:35.371 +03:00 [INF] Executed endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:29:35.372 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - 400 null application/json; charset=utf-8 14.4895ms
+2025-03-21 15:29:39.524 +03:00 [INF] Application is shutting down...
+2025-03-21 15:29:59.112 +03:00 [INF] User profile is available. Using 'C:\Users\trokh\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-21 15:29:59.185 +03:00 [WRN] Overriding address(es) 'http://localhost:5151'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-03-21 15:29:59.189 +03:00 [INF] Now listening on: http://localhost:5055
+2025-03-21 15:29:59.190 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-21 15:29:59.190 +03:00 [INF] Hosting environment: Development
+2025-03-21 15:29:59.191 +03:00 [INF] Content root path: C:\Users\trokh\RiderProjects\UpdatePasswordService\WebLevel
+2025-03-21 15:29:59.927 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/ - null null
+2025-03-21 15:29:59.973 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/ - 404 0 null 46.3677ms
+2025-03-21 15:29:59.985 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5055/, Response status code: 404
+2025-03-21 15:30:03.518 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/index.html - null null
+2025-03-21 15:30:03.563 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/index.html - 200 null text/html;charset=utf-8 45.1676ms
+2025-03-21 15:30:03.664 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/index.js - null null
+2025-03-21 15:30:03.667 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/index.js - 200 null application/javascript;charset=utf-8 2.6508ms
+2025-03-21 15:30:03.889 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/v1/swagger.json - null null
+2025-03-21 15:30:03.968 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 78.707ms
+2025-03-21 15:30:16.201 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - application/json 21
+2025-03-21 15:30:16.207 +03:00 [INF] Executing endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:30:16.220 +03:00 [INF] Route matched with {action = "RequestTask", controller = "PasswordRecovery"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RequestTaskAsync(System.String) on controller WebLevel.PasswordRecoveryController (WebLevel).
+2025-03-21 15:30:16.252 +03:00 [INF] Executing action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) - Validation state: "Valid"
+2025-03-21 15:30:16.257 +03:00 [INF] Проверка существования пользователя с email: trokhin99@gmail.com
+2025-03-21 15:30:16.264 +03:00 [INF] Start processing HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:30:16.267 +03:00 [INF] Sending HTTP request POST http://localhost:5010/api/passwordrecovery/check-mail
+2025-03-21 15:30:16.363 +03:00 [INF] Received HTTP response headers after 93.4905ms - 404
+2025-03-21 15:30:16.365 +03:00 [INF] End processing HTTP request after 104.5059ms - 404
+2025-03-21 15:30:16.367 +03:00 [WRN] Не удалось проверить существование пользователя trokhin99@gmail.com. Код ответа: "NotFound"
+2025-03-21 15:30:16.372 +03:00 [INF] Executed action method WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 115.133ms.
+2025-03-21 15:30:16.378 +03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-03-21 15:30:16.387 +03:00 [INF] Executed action WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel) in 162.2541ms
+2025-03-21 15:30:16.389 +03:00 [INF] Executed endpoint 'WebLevel.PasswordRecoveryController.RequestTaskAsync (WebLevel)'
+2025-03-21 15:30:16.391 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5055/api/passwordrecovery/request-reset-password - 400 null application/json; charset=utf-8 190.4892ms
+2025-03-21 15:30:53.468 +03:00 [INF] Application is shutting down...
