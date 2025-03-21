@@ -51,7 +51,7 @@ public class Repository : IRepository
 
             if (response.IsSuccessStatusCode)
             {
-                var login = await response.Content.ReadFromJsonAsync<string?>();
+                var login = await response.Content.ReadAsStringAsync();
                 _logger.LogInformation("login пользователя найден: {login}", login);
                 return login;
             }
@@ -71,7 +71,7 @@ public class Repository : IRepository
         try
         {
             _logger.LogInformation("Проверка существования пользователя с email: {Email}", email);
-            var response = await _httpClient.PostAsJsonAsync($"{_baseUrl}/api/passwordrecovery/check-mail", email);
+            var response = await _httpClient.GetAsync($"{_baseUrl}/api/passwordrecovery/check-mail/{email}");
 
             if (response.IsSuccessStatusCode)
             {
