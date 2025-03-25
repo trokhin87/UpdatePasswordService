@@ -30,4 +30,39 @@ docker-compose up --build
 dotnet run
 ```
 ### Переменные окружения (.env):
+| Переменная       | Описание |
+|------------------|----------|
+| SMTP_HOST       | Адрес SMTP-сервера |
+| SMTP_PORT       | Порт SMTP-сервера |
+| SMTP_USER       | Логин для SMTP |
+| SMTP_PASSWORD   | Пароль для SMTP |
+|PASSWORD_RESET_TOKEN_SECRET	| Секретный ключ для генерации токенов|
+
+## 4. Способы запуска сервиса
+### Документация API доступна в Swagger:
+```
+http://localhost:5000/swagger/index.html
+```
+### Основные эндпоинты:
+- POST /api/passwordrecovery/request-reset-password — инициирует запрос на сброс пароля, отправляя ссылку на указанный email.
+
+ - 200 — ссылка для сброса пароля отправлена.
+
+ - 400 — ошибка: пользователь не существует или отправка письма не удалась.
+
+- POST /api/passwordrecovery/reset-password — сбрасывает пароль с использованием токена.
+
+ - 200 — пароль успешно обновлен.
+
+ - 400 — ошибка: неверный токен или не удалось обновить пароль.
+
+## 5. Как тестировать
+### Запуск тестов:
+```
+dotnet test
+```
+## 6. Контакты и поддержка
+- Автор: [trokhin87]
+- GitHub: [Ссылка на репозиторий](https://github.com/trokhin87/Mail_Service)
+- Telegram: [Мой  Telegram](https://t.me/m0neylonger)
 
