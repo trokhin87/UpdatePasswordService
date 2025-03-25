@@ -5,5 +5,5 @@ namespace WebLevel.Example;
 
 public class RequestResetPasswordExample: IExamplesProvider<string>
 {
-    public string GetExamples() => "user@example.com";
+    public string GetExamples() => "trokhin99@gmail.com";
 }

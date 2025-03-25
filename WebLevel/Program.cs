@@ -7,7 +7,10 @@ using Microsoft.Extensions.Hosting;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Serilog;
+using Swashbuckle.AspNetCore.Filters;
+using WebLevel.Example;
 
 var builder = WebApplication.CreateBuilder(args);
 Log.Logger = new LoggerConfiguration()
@@ -57,7 +60,15 @@ builder.Services.AddHttpClient();
 
 // Добавляем поддержку Swagger (если нужно)
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "PasswordRecovery API", Version = "v1" });
+    c.EnableAnnotations(); // Подключаем аннотации для Swagger
+    c.ExampleFilters(); // Добавляем примеры
+});
+builder.Services.AddSwaggerExamplesFromAssemblyOf<RequestResetPasswordExample >();
+builder.Services.AddSwaggerExamplesFromAssemblyOf<ResetPasswordExample >();
+
 
 var app = builder.Build();
 
