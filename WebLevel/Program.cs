@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Swashbuckle.AspNetCore.Filters;
+using WebApplication1;
 using WebLevel.Example;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,11 +27,20 @@ string jwtSecret;
 
 if (builder.Environment.IsDevelopment())
 {
+    builder.WebHost.ConfigureKestrel(options =>
+    {
+        options.ListenAnyIP(5055);
+    });
+
     jwtSecret = builder.Configuration["JwtSettings:Secret"] ?? throw new InvalidOperationException("JWT Secret is missing in configuration");
     builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 }
 else
 {
+    builder.WebHost.ConfigureKestrel(options =>
+    {
+        options.ListenAnyIP(8089);
+    });
     jwtSecret = Environment.GetEnvironmentVariable("JwtSecret") ?? throw new InvalidOperationException("JWT Secret is missing in environment variables");
 
     builder.Services.Configure<SmtpSettings>(options =>
