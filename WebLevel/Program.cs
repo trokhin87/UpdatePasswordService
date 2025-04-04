@@ -95,7 +95,11 @@ builder.Services.AddControllers();
 // Регистрируем зависимости
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddScoped<IMail, MailRepository>();
-builder.Services.AddScoped<IService, PasswordRecoveryService>();
+builder.Services.AddHttpClient<IService, PasswordRecoveryService>(client =>
+{
+    if (string.IsNullOrEmpty(dbProxy)) throw new Exception("dbProxy не инициализирован");
+    client.BaseAddress = new Uri(dbProxy);
+});
 builder.Services.AddSingleton<TokenRepository>(provider =>
     new TokenRepository(
         jwtSecret,
