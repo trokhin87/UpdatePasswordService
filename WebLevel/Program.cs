@@ -39,7 +39,7 @@ else
 {
     builder.WebHost.ConfigureKestrel(options =>
     {
-        options.ListenAnyIP(8089);
+        options.ListenAnyIP(8080);
     });
     jwtSecret = Environment.GetEnvironmentVariable("JwtSecret") ?? throw new InvalidOperationException("JWT Secret is missing in environment variables");
 
