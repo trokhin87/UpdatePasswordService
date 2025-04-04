@@ -9,13 +9,11 @@ namespace Bussines.UpdatePsw;
 public class Repository : IRepository
 {
     private readonly HttpClient _httpClient;
-    private readonly string? _baseUrl;
     private readonly ILogger<Repository> _logger;
 
-    public Repository(IHttpClientFactory httpClientFactory, IConfiguration configuration, ILogger<Repository> logger)
+    public Repository(HttpClient httpClientFactory, ILogger<Repository> logger)
     {
-        _httpClient = httpClientFactory.CreateClient();
-        _baseUrl = configuration["ProxyMicroservice:BaseUrl"];
+        _httpClient = httpClientFactory;
         _logger = logger;
     }
 
@@ -24,7 +22,7 @@ public class Repository : IRepository
         try
         {
             _logger.LogInformation("Запрос ID пользователя по email: {Email}", email);
-            var response = await _httpClient.GetAsync($"{_baseUrl}/api/passwordrecovery/getid/{email}");
+            var response = await _httpClient.GetAsync($"/api/passwordrecovery/getid/{email}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -47,7 +45,7 @@ public class Repository : IRepository
         try
         {
             _logger.LogInformation("Запрос ID пользователя по email: {Email}", email);
-            var response = await _httpClient.GetAsync($"{_baseUrl}/api/passwordrecovery/getlogin/{email}");
+            var response = await _httpClient.GetAsync($"/api/passwordrecovery/getlogin/{email}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -71,7 +69,7 @@ public class Repository : IRepository
         try
         {
             _logger.LogInformation("Проверка существования пользователя с email: {Email}", email);
-            var response = await _httpClient.GetAsync($"{_baseUrl}/api/passwordrecovery/check-mail/{email}");
+            var response = await _httpClient.GetAsync($"/api/passwordrecovery/check-mail/{email}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -96,7 +94,7 @@ public class Repository : IRepository
         {
             _logger.LogInformation("Обновление пароля для пользователя {UserId}", login);
             LoginDto dto = new LoginDto { Login = login, Password = newPassword };
-            var response = await _httpClient.PutAsJsonAsync($"{_baseUrl}/api/passwordrecovery/update", dto);
+            var response = await _httpClient.PutAsJsonAsync($"/api/passwordrecovery/update", dto);
 
             if (response.IsSuccessStatusCode)
             {
