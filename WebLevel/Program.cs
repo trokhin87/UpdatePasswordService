@@ -24,6 +24,7 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog(); // Регистрируем Serilog
 
 string jwtSecret;
+string dbProxy = String.Empty ;
 
 if (builder.Environment.IsDevelopment())
 {
@@ -31,6 +32,7 @@ if (builder.Environment.IsDevelopment())
     {
         options.ListenAnyIP(5055);
     });
+    dbProxy = builder.Configuration["ProxyMicroservice:BaseUrl"] ?? throw new Exception("DbProxy is missing");
 
     jwtSecret = builder.Configuration["JwtSettings:Secret"] ?? throw new InvalidOperationException("JWT Secret is missing in configuration");
     builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
@@ -41,6 +43,8 @@ else
     {
         options.ListenAnyIP(8080);
     });
+    dbProxy = Environment.GetEnvironmentVariable("BaseUrl") ?? throw new Exception("DbProxy is missing");
+
     jwtSecret = Environment.GetEnvironmentVariable("JwtSecret") ?? throw new InvalidOperationException("JWT Secret is missing in environment variables");
 
     builder.Services.Configure<SmtpSettings>(options =>
@@ -61,6 +65,12 @@ else
         Log.Information($"FromEmail { options.FromEmail}");
     });
 }
+
+builder.Services.AddHttpClient("ProxyApiClient", client =>
+{
+    if (string.IsNullOrEmpty(dbProxy)) throw new Exception("dbProxy не инициализирован");
+    client.BaseAddress = new Uri(dbProxy); 
+});
 
 // Настройка JWT
 var key = Encoding.ASCII.GetBytes(jwtSecret);
@@ -92,7 +102,6 @@ builder.Services.AddSingleton<TokenRepository>(provider =>
         provider.GetRequiredService<ILogger<TokenRepository>>()
     ));
 builder.Services.AddLogging();
-builder.Services.AddHttpClient();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
