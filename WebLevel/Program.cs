@@ -13,21 +13,47 @@ using Swashbuckle.AspNetCore.Filters;
 using WebLevel.Example;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Настройка логирования
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
-builder.Host.UseSerilog(); // <- Регистрируем Serilog
-// Добавляем конфигурацию
-var configuration = builder.Configuration;
+builder.Host.UseSerilog(); // Регистрируем Serilog
 
-// Настройка JWT (чтобы валидировать входящие токены)
-var secret = configuration["JwtSettings:Secret"];
-if (string.IsNullOrEmpty(secret))
-    throw new InvalidOperationException("JWT Secret is missing in configuration.");
+string jwtSecret;
 
-var key = Encoding.ASCII.GetBytes(secret);
+if (builder.Environment.IsDevelopment())
+{
+    jwtSecret = builder.Configuration["JwtSettings:Secret"] ?? throw new InvalidOperationException("JWT Secret is missing in configuration");
+    builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+}
+else
+{
+    jwtSecret = Environment.GetEnvironmentVariable("JwtSecret") ?? throw new InvalidOperationException("JWT Secret is missing in environment variables");
+
+    builder.Services.Configure<SmtpSettings>(options =>
+    {
+        options.SmtpServer = Environment.GetEnvironmentVariable("SmtpServer") ?? throw new Exception("SmtpServer is missing");
+        Log.Information($"SmtpServer { options.SmtpServer}");
+
+        if (!int.TryParse(Environment.GetEnvironmentVariable("Port"), out int port))
+            throw new Exception("Port is missing or invalid");
+
+        options.Port = port;
+        Log.Information($"Port { options.Port}");
+
+        options.Password = Environment.GetEnvironmentVariable("Password") ?? throw new Exception("Password is missing");
+        Log.Information($"Password { options.Password}");
+
+        options.FromEmail = Environment.GetEnvironmentVariable("FromEmail") ?? throw new Exception("FromEmail is missing");
+        Log.Information($"FromEmail { options.FromEmail}");
+    });
+}
+
+// Настройка JWT
+var key = Encoding.ASCII.GetBytes(jwtSecret);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -52,23 +78,22 @@ builder.Services.AddScoped<IMail, MailRepository>();
 builder.Services.AddScoped<IService, PasswordRecoveryService>();
 builder.Services.AddSingleton<TokenRepository>(provider =>
     new TokenRepository(
-        provider.GetRequiredService<IConfiguration>()["JwtSettings:Secret"],
+        jwtSecret,
         provider.GetRequiredService<ILogger<TokenRepository>>()
     ));
 builder.Services.AddLogging();
 builder.Services.AddHttpClient();
 
-// Добавляем поддержку Swagger (если нужно)
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "PasswordRecovery API", Version = "v1" });
-    c.EnableAnnotations(); // Подключаем аннотации для Swagger
-    c.ExampleFilters(); // Добавляем примеры
+    c.EnableAnnotations();
+    c.ExampleFilters();
 });
-builder.Services.AddSwaggerExamplesFromAssemblyOf<RequestResetPasswordExample >();
-builder.Services.AddSwaggerExamplesFromAssemblyOf<ResetPasswordExample >();
-
+builder.Services.AddSwaggerExamplesFromAssemblyOf<RequestResetPasswordExample>();
+builder.Services.AddSwaggerExamplesFromAssemblyOf<ResetPasswordExample>();
 
 var app = builder.Build();
 
@@ -83,5 +108,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+Log.Information("Starting web application");
 
 app.Run();
