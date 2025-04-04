@@ -93,13 +93,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddControllers();
 
 // Регистрируем зависимости
-builder.Services.AddScoped<IRepository, Repository>();
-builder.Services.AddScoped<IMail, MailRepository>();
-builder.Services.AddHttpClient<IService, PasswordRecoveryService>(client =>
+builder.Services.AddHttpClient<IRepository, Repository>(client =>
 {
     if (string.IsNullOrEmpty(dbProxy)) throw new Exception("dbProxy не инициализирован");
     client.BaseAddress = new Uri(dbProxy);
 });
+builder.Services.AddScoped<IMail, MailRepository>();
+builder.Services.AddScoped<IService, PasswordRecoveryService>();
 builder.Services.AddSingleton<TokenRepository>(provider =>
     new TokenRepository(
         jwtSecret,
