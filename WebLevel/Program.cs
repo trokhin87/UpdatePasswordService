@@ -33,7 +33,7 @@ if (builder.Environment.IsDevelopment())
         options.ListenAnyIP(5055);
     });
     dbProxy = builder.Configuration["ProxyMicroservice:BaseUrl"] ?? throw new Exception("DbProxy is missing");
-
+    Log.Information($"db proxy : {dbProxy}");
     jwtSecret = builder.Configuration["JwtSettings:Secret"] ?? throw new InvalidOperationException("JWT Secret is missing in configuration");
     builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 }
@@ -44,7 +44,7 @@ else
         options.ListenAnyIP(8080);
     });
     dbProxy = Environment.GetEnvironmentVariable("BaseUrl") ?? throw new Exception("DbProxy is missing");
-
+    Log.Information($"db proxy : {dbProxy}");
     jwtSecret = Environment.GetEnvironmentVariable("JwtSecret") ?? throw new InvalidOperationException("JWT Secret is missing in environment variables");
 
     builder.Services.Configure<SmtpSettings>(options =>
@@ -66,11 +66,7 @@ else
     });
 }
 
-builder.Services.AddHttpClient("ProxyApiClient", client =>
-{
-    if (string.IsNullOrEmpty(dbProxy)) throw new Exception("dbProxy не инициализирован");
-    client.BaseAddress = new Uri(dbProxy); 
-});
+
 
 // Настройка JWT
 var key = Encoding.ASCII.GetBytes(jwtSecret);
