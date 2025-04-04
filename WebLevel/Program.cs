@@ -95,12 +95,7 @@ builder.Services.AddHttpClient<IRepository, Repository>(client =>
     client.BaseAddress = new Uri(dbProxy);
 });
 builder.Services.AddScoped<IMail, MailRepository>();
-builder.Services.AddHttpClient<IService, PasswordRecoveryService>(client =>
-{
-    if (string.IsNullOrEmpty(dbProxy)) throw new Exception("dbProxy не инициализирован");
-    client.BaseAddress = new Uri(dbProxy);
-});
-
+builder.Services.AddScoped<IService, PasswordRecoveryService>();
 
 builder.Services.AddSingleton<TokenRepository>(provider =>
     new TokenRepository(
