@@ -129,5 +129,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 Log.Information("Starting web application");
+Log.Information($"db proxy : {dbProxy}");
 
 app.Run();
